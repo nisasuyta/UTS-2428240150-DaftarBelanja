@@ -1,35 +1,37 @@
-let npm = document.getElementById("nama barang");
-let nama = document.getElementById("jumlah barang`");
-let image = document.getElementById("image");
+let npm = document.getElementById("NamaBarang");
+let nama = document.getElementById("JumlahBarang");
+let image = document.getElementById("Keterangan");
 
 function simpan() {
-    console.log(nama barang.value)
-    console.log(jumlah barang.value)
+    console.log(NamaBarang.value)
+    console.log(JumlahBarang.value)
+    console.log(Keterangan.value)
 
-    //localStorage.setItem("npm", npm.value)
-    //localStorage.setItem("nama", nama.value)
+    //localStorage.setItem("Nama Barang", NamaBarang.value)
+    //localStorage.setItem("Jumlah Barang", JumlahBarang.value)
+    //localStorage.setItem("Keterangan", Keterangan.value)
 
     //jika local storage belum da isi/value 
-    if (localStorage.getItem("mahasiswa") === null) {
+    if (localStorage.getItem("Nama Barang") === null) {
         //simpan array kosong []
-        localStorage.setItem("mahasiswa", "[]")
+        localStorage.setItem("Nama Barang", "[]")
     }
 
     //panggil local storage  (konersi string => object)
-    let data = JSON.parse(localStorage.getItem("mahasiswa"))
+    let data = JSON.parse(localStorage.getItem("Nama Barang"))
     console.log(data)
 
-    //simpan value nama barang dan nama ke dalam object data 
+    //simpan value npm dan nama ke dalam object data 
     data.push({
-        npm: npm.value,
-        nama: nama.value,
-        image: image.value
+        NamaBarang: NamaBarang.value,
+        JumlahBarang: JumlahBarang.value,
+        Keterangan: Keterangan.value
     })
     console.log(data)
 
     //simpan data terbaru ke local storage 
     //konversi object => string 
-    localStorage.setItem('mahasiswa', JSON.stringify(data))
+    localStorage.setItem('Nama Barang', JSON.stringify(data))
 
     //panggil tampol()
     tampil()
@@ -37,7 +39,7 @@ function simpan() {
 
 function tampil(){
     //panggil local storage
-    let hasil = JSON.parse(localStorage.getItem('mahasiswa'));
+    let hasil = JSON.parse(localStorage.getItem('Nama Barang'));
 
     // clear element ul id=list-mhs 
     document.getElementById("list-mhs").innerHTML = '';
@@ -59,3 +61,4 @@ function tampil(){
 
 //jalankan function tampil()
 tampil()
+
